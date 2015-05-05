@@ -12,8 +12,13 @@ The data structure is a flat level structure where a every single word is an sin
 $ git clone https://github.com/Lee182/opentorah.git
 $ cd opentorah
 
-$ mongoimport --db=reader -c torah --jsonArray torah.json
+$ mongoimport --db=reader -c torah --jsonArray sourcefiles/torah.json
 $ npm install
+
+// You may need to run this if you are having mongoimport errors
+$ sudo killall mongod
+$ sudo mongod --repair
+$ sudo service mongodb start
 ```
 (note for beginner a dollar sign means a refference to the shell or terminal)
 
