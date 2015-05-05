@@ -1,5 +1,6 @@
 # OpenTorah
 An express app (in very early stages at the moment) which renders the hebrew bible and mechanical transation to your browser from a mongo database.
+![alt text](https://github.com/Lee182/opentorah/Github/images/screenshot05052015.png "A basic reader")
 <br/>
 The data structure is a flat level structure where a every single word is an single entry
 ## Install
