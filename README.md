@@ -1,4 +1,4 @@
-# opentorah
+# OpenTorah
 An express app (in very early stages at the moment) which renders the hebrew bible and mechanical transation to your browser from a mongo database.
 <br/>
 The data structure is a flat level structure where a single word is an single entry
@@ -62,7 +62,7 @@ for more about .find() you can read [in the docs](http://docs.mongodb.org/manual
 <br/>
 and query operators (those they start with a dollar sign $or) [here](http://docs.mongodb.org/manual/reference/operator/query/)
 ```
-// Finds any word with the same value as hashamayim and sorts in ascending order 
+// Finds any word with the same value as hashamayim and sorts in ascending order
 > db.torah.find({heb:"הַשָּׁמיִם"}).sort({_id: 1})
 
 // RegEx searches are used to find pattern in text, the .limit(5) 'limits' the top 5 results
@@ -72,7 +72,7 @@ and query operators (those they start with a dollar sign $or) [here](http://docs
 Again its probably good to dive in and read the [introduction](http://docs.mongodb.org/manual/core/aggregation-introduction/) and concepts on aggregation
 <br/>
 Here are some things you can do
-Find the numbers of words without an translation eng: '[x]'
+Find the numbers of words without an translation eng: '[x]'?
 ```
 db.torah.aggregate([
   // Filter by book or other fields using $match
@@ -85,7 +85,7 @@ db.torah.aggregate([
   { $project: {_id:0, book: "$_id", n:"$count"} }
 ])
 ```
-Find the top 20 words in the torah
+Find the top 20 words in the torah?
 ```
 db.torah.aggregate([
   { $group: {_id: "$heb", count: {$sum: 1}, eng: {$addToSet: "$eng"}} },
@@ -93,13 +93,32 @@ db.torah.aggregate([
   { $limit: 20 }
 ])
 ```
-Find the average number of words per chapter in an book
+Find the average number of words per chapter in an book?
 ```
 db.torah.aggregate([
   { $group: { _id: {book: "$book", c:"$c"}, count: {$sum: 1} } },
   { $group: {_id: "$_id.book", average: {$avg: "$count"}} }
 ])
 ```
+Generate an concordance of the Yhwh // do note there is 1820 results so it will overflow your terminal with information
+```
+db.torah.aggregate([
+  { $match: {eng: {$regex: "Yhwh"}}},
+  { $group: {_id: "$heb", eng: {$addToSet: "$eng"},count: {$sum:1}, ref: {$addToSet: {book: "$book", c:"$c", v:"$v",w:"$w" } } } }
+
+//  Stage to clean up the report
+//  { $group: {_id:{heb:"$_id", count:"$count"}} }
+]).pretty()
+```
+count the number of unique hebrew words?
+```
+db.torah.aggregate([ 
+  { $group: {_id: "$heb", eng: {$addToSet: "$eng"},count: {$sum:1} } },
+  { $group: {_id:"Number of words is", n:{$sum:1}} }
+]).pretty()
+// { "_id" : "Number of words is", "n" : 15951 }
+```
+
 ## About 0.1
 Notice this project is 0.0.1 version, this is because I have some __big aims__
 - A mulit-layed computerised translation with dictionaries, lexicon and concordances
