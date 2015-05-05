@@ -9,8 +9,8 @@ The data structure is a flat level structure where a every single word is an sin
 
 ### Initilizing
 ```
-$ git clone /respitory/
-$ cd /respitory/
+$ git clone https://github.com/Lee182/opentorah.git
+$ cd opentorah
 
 $ mongoimport --db=reader -c torah --jsonArray torah.json
 $ npm install
