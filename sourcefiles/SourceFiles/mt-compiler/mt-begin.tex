@@ -1,0 +1,83 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\TeXXeTstate=1
+\documentclass[twoside,10pt]{article}
+
+\usepackage{geometry}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage[xetex,pdfpagemode=UseNone,colorlinks=true,linkcolor=blue,urlcolor=blue,hyperfootnotes=false]{hyperref}
+\usepackage{xltxtra}
+\usepackage{bidi}
+\usepackage[perpage,para]{footmisc}
+
+\setmainfont[Scale=0.55,Mapping=tex-text]{Verdana}
+\newfontfamily{\T}[Scale=1.0,Mapping=tex-text]{Times New Roman}
+\newfontfamily{\H}[Scale=1.0,Color=210E69]{SBL Hebrew:script=hebr,language=IWR,+ccmp,+dlig,+kern,+mark}
+\newfontfamily{\S}[Scale=1.0,Color=210E69,LetterSpace=-6]{Proto-Semitic:script=hebr,language=IWR}
+\newfontfamily{\I}[Scale=0.5,WordSpace=2]{Times New Roman}
+\newfontfamily{\V}[Scale=0.35]{DejaVu Serif}
+
+\geometry{layout=letterpaper,ignoreall,nomarginpar,tmargin=0.375in,bmargin=0.5in,lmargin=0.25in,rmargin=0.25in,headheight=0.5in,headsep=0.125in}
+
+\setlength{\voffset}{0.30in}
+\setlength{\hoffset}{0in}
+\setlength{\parindent}{0.0in}
+
+\renewcommand{\tabcolsep}{0pt}
+\renewcommand{\arraystretch}{0.4}
+
+\definecolor{gray}{RGB}{128,128,128}
+\definecolor{maroon}{RGB}{128,0,0}
+
+\pagestyle{fancy}
+\chead{{\T{}\bfseries{}Mechanical Translation of the Torah\\}}
+\fancyhead[LO,RE]{\bfseries{}\rightmark{}}
+\fancyhead[LE,RO]{{\T{}\bfseries{}\thepage{}}}
+\cfoot{}
+
+\title{{\T{}Mechanical Translation of the Torah\\(Draft only)}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{center}
+\begin{minipage}{6in}
+
+{\T{}
+This document is only a draft of the Mechanical Translation of the Torah (five books of Moses) and may contain errors and omissions (omissions are represented by {[}X{]}), so caution is advised when using this document. The errors and omissions are corrected during the translational process for the Revised Mechanical Translation, but this translation is not yet complete.\hfill{}\\
+
+This incomplete translation has been created for two purposes.\hfill{}\\
+
+\begin{enumerate}
+{\item To provide you with a resource for deeper studies of the Hebrew text behind the English translations.}
+{\item To provide me with feedback, criticisms and corrections. If you find any errors or if you have a critique of the format and/or translations, you can email them to \href{mailto:mtproject@mechanical-translation.org}{mtproject@mechanical-translation.org}.}
+\end{enumerate}
+}
+
+\vspace{4ex}
+
+\begin{center}
+{\T{}\Large{}Table of Contents}
+\end{center}
+
+\center{\T{}\parskip 0.125in
+\hyperref[page:genesis]{Genesis}\dotfill{}\pageref{page:genesis}\\
+\hyperref[page:exodus]{Exodus}\dotfill{}\pageref{page:exodus}\\
+\hyperref[page:leviticus]{Leviticus}\dotfill{}\pageref{page:leviticus}\\
+\hyperref[page:numbers]{Numbers}\dotfill{}\pageref{page:numbers}\\
+\hyperref[page:deuteronomy]{Deuteronomy}\dotfill{}\pageref{page:deuteronomy}\\
+\hyperref[page:dictionary]{Dictionary}\dotfill{}\pageref{page:dictionary}\\
+\hspace*{0.25in}\hyperref[page:dictionary:words]{Words}\dotfill{}\pageref{page:dictionary:words}\\
+\hspace*{0.25in}\hyperref[page:dictionary:names]{Names}\dotfill{}\pageref{page:dictionary:names}\\
+\hspace*{0.25in}\hyperref[page:dictionary:pre-n-suf]{Prefixes and Suffixes}\dotfill{}\pageref{page:dictionary:pre-n-suf}\\
+}
+
+\end{minipage}
+\end{center}
+\begin{RTL}

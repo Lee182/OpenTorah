@@ -1,0 +1,24 @@
+extends index.jade
+
+block content
+  .reader
+    h1= words[0].book
+    .container   
+      .stage
+        each word in words
+          if word.w === 1
+            div(id=word._id).word
+              .vnum(id="v" + word.c + "," + word.v)
+                span= word.v
+
+              .heb
+                span=  word.heb + " "
+              .trans
+                span= word.eng + " "
+          else
+            div(id=word._id).word
+              .heb
+                span=  word.heb + " "
+              .trans
+                span= word.eng + " "
+  script(src="/removeSwigles.js" type="text/javascript")
