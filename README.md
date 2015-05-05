@@ -177,5 +177,5 @@ Here are some aims
     - DESCRIPTION:  Generates XeLaTeX code for the "Mechanical Translation of the Torah"
 - __Jeff Benner__
     - [Mechanical Translaiton (Mt)](http://mechanical-translation.org/)
-- Hebrew
+- Hebrew text
     - Vowel of the WLC
