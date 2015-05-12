@@ -4,60 +4,104 @@
 // Reset Html
 global-reset()
 
-$heb = '',Arial
+// Hide for now
+.left
+  display none
 
+
+// Layout //
+.nav 
+  display flex
+  width 61.8%
+  justify-content flex-end
+  margin-bottom 12px
+.nav > li
+  display flex
+  flex-direction row
+  width 33.333%
+  justify-content flex-end
+  
+  padding 12px 5px
+
+// scroll on the right
+.container 
+  display flex
+  justify-content flex-end
+
+// Text is right to left at gloden ratio
+.scroll
+  display flex
+  flex-wrap wrap
+  flex-direction row-reverse
+  width 61.8%
+  height 100%
+
+.left
+  width 38.2%
+  padding 1%
+
+
+
+// Modules //
+// Chapter title drop
+#chapter
+  display inline
+  input
+    width: 2.5em;
+    text-align: center;
+    font-size 26px
+// Words in scroll section
+.word, .verse
+  direction rtl
+  padding 12px
+  display inline
+// Verse in scroll secton
+.vnum
+    color: #9F9F9F;
+    margin: 0px 0px -18px -20px;
+    padding: 0px;
+    position: relative;
+    top: -14px;
+    left: 12px;
+
+// Title
 h1
   margin 20px 5px 20px 5px
   text-align center
   text-transform uppercase
   font-size 26px
   font-family Open Sans
+
+.footer
+  position bottom
+  background-color lighten(blue, 80%)
+  padding 20px
+  margin-top 5%
+  text-align right
+  strong
+    color black
+  p
+    margin 10px
+    color lighten(black, 50%)
+// Text //
+$heb = '',Arial
+.heb span
+  font-family $heb
+  font-size 18px
 .heb
   margin-bottom 7px
   color #221F53
-.heb span
-  font-family $heb
-  font-size 20px
-.trans
+
+a, .trans
   direction ltr
   color #51516B
+  text-decoration none
+  &:hover
+    color lighten(#51516B,50%)
 span
   margin 5px 5px
   font-size 13px
   font-family Open Sans
 
-.stage
-  // background-color #7cb6da
-  display flex
-  flex-wrap wrap
-  flex-direction row-reverse
-  width 98%
-  height 95%
+// Color //
 
-.container {
-  display flex
-  align-items: center;
-  justify-content: center;
-}
-
-.word, .verse
-  direction rtl
-  padding 12px
-  display inline
-.vnum {
-    color: #9F9F9F;
-    margin: 0px 0px -18px -20px;
-    padding: 0px;
-    position: relative;
-    top: -14px;
-    left: 19px;
-}
-.v14
-  margin 2px 0px
-  padding 3px 5px
-  background-color #ABD2FF
-.v1, .v2, .v3, .v4, .v5, .v6
-  display flex
-  flex-direction row-reverse
-  flex-wrap wrap
-  max-width 100%

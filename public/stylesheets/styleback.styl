@@ -1,0 +1,75 @@
+// Imports
+@import 'nib'
+
+// Reset Html
+global-reset()
+
+$heb = '',Arial
+
+h1
+  margin 20px 5px 20px 5px
+  text-align center
+  text-transform uppercase
+  font-size 26px
+  font-family Open Sans
+#chapter
+  display inline
+  input
+    width: 2.5em;
+    text-align: center;
+    font-size 26px
+.heb
+  margin-bottom 7px
+  color #221F53
+.heb span
+  font-family $heb
+  font-size 20px
+.trans
+  direction ltr
+  color #51516B
+span
+  margin 5px 5px
+  font-size 13px
+  font-family Open Sans
+
+.stage
+  // background-color #7cb6da
+  display flex
+  flex-wrap wrap
+  flex-direction row-reverse
+  width 61.8%
+  height 95%
+.content 
+  width 38.2%
+  padding 1%
+.container {
+  display flex
+  justify-content: flex-end;
+}
+
+.nav
+  display inline
+.word, .verse
+  direction rtl
+  padding 12px
+  display inline
+.vnum {
+    color: #9F9F9F;
+    margin: 0px 0px -18px -20px;
+    padding: 0px;
+    position: relative;
+    top: -14px;
+    left: 12px;
+}
+.v14
+  margin 2px 0px
+  padding 3px 5px
+  background-color #ABD2FF
+.v1, .v2, .v3, .v4, .v5, .v6
+  display flex
+  flex-direction row-reverse
+  flex-wrap wrap
+  max-width 100%
+
+.content
+  display none

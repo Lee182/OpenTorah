@@ -1,0 +1,17 @@
+h1 Definitions
+h2 Words
+d1
+  each dfn in dfns
+    // if (dfn.type['words'])
+    .word
+      dt(id=dfn.dt)= dfn.dt + ": "
+      dd.heb
+       if (dfn.heb)
+         each heb in dfn.heb
+           p.heb= heb.heb
+           p.translit= heb.translit
+      dd.define= dfn.dfn
+      dd.strongs
+        if (dfn.strongs)
+          each strong in dfn.strongs
+            span= strong + ", "

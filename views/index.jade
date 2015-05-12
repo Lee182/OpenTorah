@@ -1,8 +1,18 @@
 doctype html
 html
   head
-    title Translation
+    block title
+      title Translation
     link(rel='stylesheet', href='/stylesheets/style.css')
     meta(charset='utf-8')   
   body
     block content
+    // .footer
+    //  p Web and database development by 
+    //    strong Jonathan Lee
+    //  p Translation from 
+    //    a(href="http://mechanical-translation.org/") MT
+    //    |  by 
+    //    strong Jeff Benner 
+
+// wget --recursive --no-clobber --page-requisites --html-extension --convert-links --domains learnlayout.com  --no-parent http://learnlayout.com/

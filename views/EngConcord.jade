@@ -1,0 +1,20 @@
+
+
+h1.engQuery= "Your Search query was " +  eng
+
+- var t = 0
+each occur in occurs
+  - t = occur.where.length + t
+h2= "Total occurances = " + t
+.occurances
+  each occur in occurs
+    p.eng= occur._id.eng
+    p.hebs
+      each heb in occur.heb
+        span.heb= heb + " "
+    .place
+      each where, index in occur.where
+        span.where
+          span.index= index + 1 + " "
+          a(href="../"+where.book+"/"+where.c+"?v="+where.v)= where.book + " " + where.c+":"+where.v+","+where.w
+          | , 

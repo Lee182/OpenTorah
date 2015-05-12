@@ -1,0 +1,15 @@
+d1
+  each dfn in dfns
+    h2= dfn.dt
+    .word
+      //- dt(id=dfn.dt)= dfn.dt + ": "
+    if (dfn.heb)
+      dd.heb
+        each heb in dfn.heb
+          p.heb= heb.heb
+          p.translit= heb.translit
+    dd.define= dfn.dfn
+    if (dfn.strongs)
+      dd.strongs
+        each strong in dfn.strongs
+          span= strong + ", "
