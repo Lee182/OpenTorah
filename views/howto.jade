@@ -1,0 +1,33 @@
+title open torah
+h1 open torah
+p The reader is the basic renderers the hebrew text with mechanical translation underneath for you to read
+h2 Navigating
+h3 by book
+p
+  a(href='http://localhost/exodus') http://localhost/exodus
+p This will redirect you to the first chapter
+h3 by chapter
+p
+  a(href='http://localhost/exodus/7') http://localhost/exodus/7
+
+h3 by a verse within a chapter
+p 
+  a(href='http://localhost/exodus/7?v=10') http://localhost/exodus/7?v=10
+p // Note an detailed verse view is still to be made
+
+
+h2 hebrew text types
+p 
+  | The default hebrew text type is the 
+  a(href='' target='_blank') West Leningrad Codex's
+  | vowel notation (note still need to write script to get the full tanank with cantilation marks)
+  | and query is 
+  code ?hebtype=heb
+  br
+  |  to change the heb type to ancient hebrew the query is 
+  code ?hebtype=anc
+  |  so genesis 1:1 in ancient hebrew would look something like this
+  br
+  a(href='/genesis/1?v=1&hebtype=anc') http://localhost/genesis/1?v=1&hebtype=anc
+h2 Some other changed
+p I've added a dictionary which still needs work on and tools for both an english and hebrew concordance (which both need work on)
