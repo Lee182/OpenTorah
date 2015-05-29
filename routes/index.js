@@ -2,13 +2,14 @@ module.exports = function(app, db) {
 
   var torah = db.collection('torah');
   var dfn = db.collection('dfn');
+
   app.get('/', function (req, res) {
     res.render('howto.jade');
   });
 
   app.get('/ancConcord/:heb', function(req,res){
     var hebtype = "heb"
-    if (req.query.hebtype) {
+    if (req.query.hebtype === "anc") {
       hebtype = req.query.hebtype
     }
     var anc = req.params.heb
@@ -85,18 +86,6 @@ module.exports = function(app, db) {
       }
     });
   });
-/*
-    torah.find(matcher, function(err, docs) {
-      if(err) throw err;
-      words = docs.sort({_id:1}).toArray(function(err,items) {
-        if (err) return callback(err, null);
-        if (items) {
-          res.render('reader.jade', {words: items} )
-          console.log('I got ' + items[0] + ' words for you')
-        }
-      });
-    });
-*/
 
   app.get('/:book', function (req,res) {
     var book = req.params.book;
@@ -123,14 +112,21 @@ module.exports = function(app, db) {
       query.v = Number(v)
     }
     torah.find(query, function(err, docs) {
-      if(err) throw err;
-      words = docs.sort({_id:1}).toArray(function(err,items) {
-        if (err) return callback(err, null);
-        if (items.length > 0) {
-          res.render('reader.jade', {words: items, verse:v, hebtype: hebtype} )
-        }
-        else  res.status(404).send("Opps we couldn't find book " + book)
-      });
+      if (err) throw err;
+      if (docs) {
+        docs.sort({_id:1}).toArray(function(err,items) {
+          if (err) return callback(err, null);
+          if (items.length > 0) {
+            res.render('reader.jade', {words: items, verse:v, hebtype: hebtype})
+          }
+          else {
+            setTimeout(function(){           
+              if (!(items.length > 0)) 
+                {res.status(404).send("Opps we couldn't find the book " + book)}
+            }, 3000)
+          }
+        });
+      } 
     });
   });
 }

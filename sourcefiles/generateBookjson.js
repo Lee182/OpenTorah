@@ -1,11 +1,7 @@
-// Author: Jonathan Lee
-
 var fs = require('fs');
-
 var books = ["genesis", "exodus", "leviticus", "numbers","deuteronomy"]
 
 var book = [];
-
 var versedb = [];
 // {_id: "1:1", words: [0,10]}
 // {_id: {book: 1, c: 1, v: 2}, start: 9830, end: 2319}
@@ -13,6 +9,7 @@ var versedb = [];
 
 var wordcount = 0;
 for (var u = 0; u < books.length; u++) {
+
   var bookName = books[u]
 
   var text = fs.readFileSync(__dirname + '/booksTxt/' + bookName + '.txt').toString()
@@ -49,44 +46,10 @@ for (var u = 0; u < books.length; u++) {
   }
 
 }
-/* function (err, data) {
-  fs.readFile(__dirname + '/booksTxt/' + bookName + '.txt', function (err, data) {
-    if (err) throw err;
-    var text = data.toString();
-    var verses = text.split("\n");
-  
-    console.log("bookName in fs.readFile is " + bookName)
-    console.log("books[u] in fs.readFile is " + books[u])
-  // {id : {book: "Lev", verseName:"1:1", wordNum:{1}}, heb: "", eng: ""}
-  // {id : {book: "Lev", verseName:"1:1", wordNum:{2}}, heb: "", eng: ""}
-  // {_id: 3242, verseName:"5:12", num: 3, heb, eng
 
-  for (var i=0; i < verses.length - 1; i++) {
-    var verse = verses[i].split(" ");
-    var verseName = verse.shift();
-
-
-    for (var s=0; s < verse.length - 1; s = s + 2) {
-      var heb = verse[s];
-      var eng = verse[s+1];
-      var wordNum = (s/2 + 1);
-      wordcount = (wordcount + 1)
-      var entry = {_id: wordcount, book: bookName, v: verseName, w: wordNum, heb: heb, eng: eng}
-      if (!((entry.heb == null)||(entry.heb == "")||(entry.heb == undefined))){
-        book.push(entry)
-      }
-    }
-  }
-});
-*/
 
 setTimeout(function() {
-/*
-  fs.writeFile(__dirname + "/" + "torah" + ".json", JSON.stringify(book), function(err) {
-    if (err) throw err;
-    console.log("wrote an book")
-  });
-*/
+
   fs.writeFile(__dirname + "/" + "versedb" + ".json", JSON.stringify(versedb), function(err) {
     if (err) throw err;
     console.log("wrote an versedb")
