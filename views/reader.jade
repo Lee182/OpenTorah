@@ -85,3 +85,47 @@ block content
                 span
                   a(href='../EngConcord/' + word.eng target="_blank")= word.eng + " "
   script(src="/removeSwigles.js" type="text/javascript")
+
+  //
+    script(src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript")
+
+    script. 
+      jQuery.fn.visible = function() {
+          return this.css('visibility', 'visible');
+      };
+
+      jQuery.fn.invisible = function() {
+          return this.css('visibility', 'hidden');
+      };
+
+      jQuery.fn.visibilityToggle = function() {
+          return this.css('visibility', function(i, visibility) {
+              return (visibility == 'visible') ? 'hidden' : 'visible';
+          });
+      };
+
+      //$('.word').on('click', '.heb', function(){
+      //  $(this).closest('.word').find('.trans').visibilityToggle();
+      //});
+      var heb = $('.heb')
+      heb.closest('.word').find('.trans').slideToggle();
+      $('.word').on('click', '.heb', function(){
+        var clicked = $(this);
+        heb.each(function() {
+          if ( clicked.text() === $(this).text() ) {
+            $(this).closest('.word').find('.trans').slideToggle();
+          }
+        });
+        
+      });
+
+
+
+
+
+
+
+
+
+
+

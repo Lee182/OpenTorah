@@ -1,23 +1,23 @@
 module.exports = function(heb, type) {
-  if (type === 'anc'||undefined) {
+  if (type === 'anc' || type === undefined) {
     var characters = heb.split('');
     for (var x = 0; x < characters.length; x++){
       characters[x] = finalLetterConvertor( characters[x] );
       characters[x] = removeCantilation( characters[x]);
-      characters[x] = removeVowels( characters[x]);
+      characters[x] = rmSomeVowels( characters[x]);
     }
     heb = characters.join('');
     heb = shintoSamek(heb);
     heb = holamhiriqConvertor(heb);
     return heb;
   }
-  else if (type === 'constants') {
+  else if (type === ('constants' || 'constant')) {
     // heb = shintoSamek(heb);
     var characters = heb.split('');
     for (var x = 0; x < characters.length; x++){
     //  characters[x] = finalLetterConvertor( characters[x] );
       characters[x] = removeCantilation( characters[x]);
-      characters[x] = removeVowels( characters[x]);
+      characters[x] = rmAllVowels( characters[x]);
     }
     heb = characters.join('');
     // heb = holamhiriqConvertor(heb);
@@ -29,7 +29,7 @@ module.exports = function(heb, type) {
     for (var x = 0; x < characters.length; x++){
     //  characters[x] = finalLetterConvertor( characters[x] );
       characters[x] = removeCantilation( characters[x]);
-    //  characters[x] = removeVowels( characters[x]);
+    //  characters[x] = rmSomeVowels( characters[x]);
     }
     heb = characters.join('');
     // heb = holamhiriqConvertor(heb);
@@ -41,7 +41,7 @@ module.exports = function(heb, type) {
     for (var x = 0; x < characters.length; x++){
     //  characters[x] = finalLetterConvertor( characters[x] );
     //  characters[x] = removeCantilation( characters[x]);
-      characters[x] = removeVowels( characters[x]);
+      characters[x] = rmAllVowels( characters[x]);
     }
     heb = characters.join('');
     // heb = holamhiriqConvertor(heb);
@@ -59,13 +59,14 @@ module.exports = function(heb, type) {
       // hireq
       if (heb[i] === "ִ") {
         if (heb[i-1] === "י") {heb[i] = "";}
+        else if (heb[i+1] === "י") {heb[i] = "";}
         else heb[i] = "י";
       }
     }
     return heb.join('');
   }
 
-  function removeVowels(char) {
+  function rmSomeVowels(char) {
     var vowels = { 
       "Sheva":" ְ",
       "Segol":" ֶ",
@@ -83,6 +84,34 @@ module.exports = function(heb, type) {
       //"Sin Dot":" ׂ"
       //"Hiriq":" ִ",
       //"Holam":" ֹ"
+    };
+    for (var property in vowels) {
+        if (vowels.hasOwnProperty(property)) {
+            if (char.charCodeAt() === vowels[property].charCodeAt(1)){ 
+              return '';
+            }
+        }
+    }
+    return char;
+  }
+  function rmAllVowels(char) {
+    var vowels = { 
+      "Sheva":" ְ",
+      "Segol":" ֶ",
+      "Hatef Segol":" ֱ",
+      "Patah":" ַ",
+      "Hatef Patah":" ֲ",
+      "Qamats":" ָ",
+      "Hatef Qamats":" ֳ",
+      "Tsere":" ֵ",
+      "Qubuts":" ֻ",
+      "Dagesh":" ּ",
+      "Meteg":" ֽ",
+      "Rafe":" ֿ",
+      "Shin Dot":" ׁ",
+      "Sin Dot":" ׂ",
+      "Hiriq":" ִ",
+      "Holam":" ֹ"
     };
     for (var property in vowels) {
         if (vowels.hasOwnProperty(property)) {

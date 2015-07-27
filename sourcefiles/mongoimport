@@ -1,2 +1,0 @@
-mongoimport --db=reader -c torah --jsonArray torah.json
-mongoimport --db=reader -c dfn --jsonArray dictionary.json

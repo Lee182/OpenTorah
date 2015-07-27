@@ -1,6 +1,6 @@
 {
   "name": "OpenTorah",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An express app (in very early stages at the moment) which renders the hebrew bible and mechanical transation to your browser from a mongo database",
   "main": "app.js",
   "dependencies": {
@@ -31,5 +31,8 @@
     "mongodb",
     "express"
   ],
+  "scripts": {
+    "start": "node app.js"
+  },
   "author": "Jonathan Lee"
 }
