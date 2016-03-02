@@ -1,19 +1,19 @@
 # OpenTorah
-An express app (in very early stages at the moment) which renders the hebrew bible and mechanical transation to your browser from a mongo database.
+A Web application built with mongodb nodejs and express  to renders the hebrew bible and translations.
 ![A Screenshot](https://github.com/Lee182/opentorah/blob/master/Github/images/screenshot05052015.png "A basic reader")
 <br/>
-The data structure is a flat level structure where a every single word is an single entry
+The data structure is a flat level structure where each single word is an single entry
 ## Install
 ### Dependencies
 - [mongodb](http://docs.mongodb.org/manual/installation/)
 - [nodejs](http://nodejs.org/)
 
-### Initilizing
+### Init
 ```
 $ git clone https://github.com/Lee182/opentorah.git
 $ cd opentorah
 
-$ mongoimport --db=reader -c torah --jsonArray sourcefiles/torah.json
+$ mongoimport --db=reader -c ./data/torah --jsonArray sourcefiles/torah.json
 $ npm install
 
 // You may need to run this if you are having mongoimport errors
@@ -21,19 +21,18 @@ $ sudo killall mongod
 $ sudo mongod --repair
 $ sudo service mongodb start
 ```
-(note for beginner a dollar sign means a refference to the shell or terminal)
 
 ## Start-up
 
 Navigate to the opentorah folder and run
 ```
 $ node app.js
-// the default express server is at http://localhost:5775
+// the default url is at http://localhost:5775
 ```
 In the url you can type localhost:5775/bookname/1?v=5
 <br />
 ## Express App Functionality (...So far)
-With the app 
+With the app
 ```
 localhost:5775/genesis                        // renders genesis 1
 localhost:5775/leviticus/19                   // renders leviticus chapter 19
@@ -43,7 +42,7 @@ Note the only books avalible atm is this array``["genesis", "exodus", "leviticus
 ## db queries (examples)
 ### Schema
 The data structure is a flat level structure where a single word is an single entry
-``` 
+```
 $ mongo reader                    // Connect to reader database
 > db.torah.findOne({})            // Query the torah collection with the db
 {
@@ -85,10 +84,10 @@ Find the numbers of words without an translation eng: '[x]'?
 db.torah.aggregate([
   // Filter by book or other fields using $match
   { $match: {eng: '[X]', $or: [{book: "exodus"}, {book: "numbers"}]} },
-  
+
   // Group the results by book to make an report
   { $group: {_id: "$book", count: {$sum: 1}, words: {$addToSet: "$_id"}} },
-  
+
   // Hide words array and cleanup the format
   { $project: {_id:0, book: "$_id", n:"$count"} }
 ])
@@ -120,7 +119,7 @@ db.torah.aggregate([
 ```
 count the number of unique hebrew words?
 ```
-db.torah.aggregate([ 
+db.torah.aggregate([
   { $group: {_id: "$heb", eng: {$addToSet: "$eng"},count: {$sum:1} } },
   { $group: {_id:"Number of words is", n:{$sum:1}} }
 ]).pretty()
@@ -154,7 +153,7 @@ db.torah.update({heb: "הָעֲדָרִים"},{$set: {eng: "the~DROVE~s"}},{mult
 db.torah.update({heb: "וְגָלְלוּ"},{$set: {eng: "and~they~will~ROLL"}},{multi: true})
 db.torah.update({heb: "אַרְבֶּה"},{$set: {eng: "I(cs)~will~make~INCREASE(V)"}},{multi: true})
 ```
-That way you can run the script 
+That way you can run the script
 ```
 $ mongo reader updatelog.js
 ```
@@ -167,9 +166,9 @@ Here are some aims
 - A mulit-layed computerised translation with dictionaries, lexicon and concordances
 - Develop a plugable translation concept
   - Where users can modify the database,
-    - to improve translation, 
-    - create a translation, 
-    - or change words at preference    
+    - to improve translation,
+    - create a translation,
+    - or change words at preference
   - This data can be exported and someone else can import the data like plugand play
 ## TODO
 - add an array within entry for the roots/morphology of words
@@ -179,9 +178,9 @@ Here are some aims
 
 ## Bibliography
 - __Gregory Bartholomew__
-    - booksTxt files  from mt-compiler 
+    - booksTxt files  from mt-compiler
     - DESCRIPTION:  Generates XeLaTeX code for the "Mechanical Translation of the Torah"
 - __Jeff Benner__
     - [Mechanical Translaiton (Mt)](http://mechanical-translation.org/)
-- Hebrew text
-    - Vowel of the WLC
+- __Christopher V.Kimball__
+    - hebrew text from WLC see [tanakh.us](http://www.tanakh.us/License.html)

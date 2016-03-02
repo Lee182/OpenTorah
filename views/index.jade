@@ -2,18 +2,28 @@ doctype html
 html
   head
     block title
-      title Translation
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    meta(charset='utf-8')   
-  body
-    block content
-     //-
-       .footer
-        p Web and database development by 
-          strong Jonathan Lee
-        p Translation from 
-          a(href="http://mechanical-translation.org/") MT
-          |  by 
-          strong Jeff Benner 
+      title Open Torah
+      meta(property='og:title', content='Open Torah /')
 
-//- wget --recursive --no-clobber --page-requisites --html-extension --convert-links --domains smacss.com --no-parent https://smacss.com/book
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0')
+    
+    meta(property='og:site_name', content='Open Torah')
+    meta(name='description' content='Open Toarh is an web app made by Jonathan Lee, which opens the hebrew text of the bible to the people.')
+    meta(property='og:description', content="Open Toarh is an web app made by Jonathan Lee, which opens the hebrew text of the bible to the people.")
+    meta(property='og:image', content='/images/ogimage.jpg')
+    meta(property='og:type', content='website')
+      
+    link(rel='icon' href='/p100bg.png')
+    link(rel='stylesheet', href='/styl/styl.css')
+  body
+    #chest
+      block content
+   //-
+     .footer
+      p Web and database development by 
+        strong Jonathan Lee
+      p Translation from 
+        a(href="http://mechanical-translation.org/") MT
+        |  by 
+        strong Jeff Benner
