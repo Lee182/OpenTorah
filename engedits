@@ -1,0 +1,51 @@
+eng = document.querySelectorAll('.engundefined')
+var reduce_eng_cond = false
+do {
+  reduce_eng = false
+  setTimeout(reduceEng,1000)
+} while (reduce_eng_cond === true)
+
+function reduceEng(){
+  [].forEach.call(eng, function(el){
+    var txt = el.textContent
+    if (txt.length -1 >= 0) {
+      el.textContent = txt.substr(0, el.textContent.length - 1)
+      reduce_eng_cond = true
+    }
+  })
+}
+
+eng = document.querySelectorAll('.engundefined')
+function doloop(job) {
+  job().then(function(bool){
+    if (bool) {
+      return doloop(job)
+    }
+  })
+}
+function main(){
+  return wait_(1).then(reduceEng_)
+}
+function wait_(s) {
+  // s: seconds, number
+  var ms = s * 1000
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      resolve(s)
+    }, ms)
+  });
+}
+
+function reduceEng_(){
+  var reduce_eng_cond = false
+  Array.prototype.forEach.call(eng, function(el){
+    var txt = el.textContent
+    if (txt.length -1 >= 0) {
+      el.textContent = txt.substr(0, el.textContent.length - 1)
+      reduce_eng_cond = true
+    }
+  })
+  return Promise.resolve(reduce_eng_cond)
+}
+
+doloop(main)

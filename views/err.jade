@@ -1,0 +1,60 @@
+if err
+  link(rel='stylesheet', href='/lib/highlight/styles/solarized_dark.css')
+  style.
+    .code, code {
+      font-family: "Droid Sans Mono",monospace;
+    }
+    h1 {
+      font-weight: 400;
+      color: #A1582A;
+    }
+    .hljs.bash {
+      line-height: 1.7em;
+    }
+    .flexwrap {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items:flex-start;
+      height:100%;
+    }
+    .error {
+      max-width: 800px;
+      background-color: #fff;
+      padding: 2em;
+      margin-top:2em;
+    }
+  .flexwrap
+    .error
+      h1
+        pre.code=err.message
+      pre
+        code.hljs.bash(style={background:'transparent'})= err.stack
+      script.
+        var regexb = /\((.*?[^\)])\)/g
+        var dir = "/home/lee/Desktop/OpenTorah/OpenTorah"
+        regexb = new RegExp("\((" +dir+ ".*?[^\)])\)", "g")
+        
+        function changErr(err, options) {
+          if ( options.displaylocal ) { 
+            return err.split('\n').filter(function(line, i){
+              if (i === 0 ) return true
+              if (line.match(/\s\s/) === null) return true
+              return (line.match(regexb) || line.match(/\s+\d\|/) )  
+            }).map(function(line){
+              return line.replace(dir, "")  
+            }).join('\n')
+          }
+          return err
+        }
+        errs = document.querySelectorAll('.code, code')
+        Array.prototype.forEach.call( errs, function(el){
+          el.textContent = changErr(el.textContent, {displaylocal: true})
+        })
+        if ( errs[0].textContent.match('.jade') ){
+          errs[0].textContent = errs[1].textContent.split('\n')[0]
+          errs[1].textContent = errs[1].textContent.split('\n').splice(1, 50).join('\n')
+        }
+  script(src='/lib/highlight/highlight.pack.js')
+  script.
+    hljs.initHighlightingOnLoad();

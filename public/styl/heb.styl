@@ -1,0 +1,45 @@
+$c_main = #535353
+@font-face
+ font-family davidnew
+ font-style normal
+ src url('/fonts/heb/davidnew.ttf')
+
+@font-face
+ font-family davidMed
+ font-style normal
+ src url('/fonts/heb/DavidCLM-Medium.ttf')
+
+@font-face
+ font-family keter
+ font-style normal
+ src url('/fonts/heb/KeterYG-Medium.ttf')
+
+f_davidnew =
+  font-family davidnew
+  font-size 1.5em
+f_david =
+  font-family davidMed
+  font-size 1.5em
+f_keter =
+  font-family keter
+  font-size 1.5em
+
+.heb
+  {f_david}
+  direction rtl
+  color $c_main
+  a
+    color $c_main
+    &:hover
+      color lighten($c_main,50%)
+.vnum
+  position: relative;
+  width: 0.1em;
+  height: 0em
+  direction: rtl;
+  color: #A9A9A9;
+  top: -.1em
+  left .8em;
+  transition opacity .5s ease, visibility .5s ease
+  &:hover
+    text-decoration underline

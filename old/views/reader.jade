@@ -1,0 +1,131 @@
+extends index.jade
+block title 
+  if verse
+    title= words[0].book + ' ' + words[0].c + ":" + verse
+  else
+    title= words[0].book + ' ' + words[0].c
+block content
+  if (hebtype === 'anc')
+    style.
+      .heb > span {
+        font-family: "Droid Sans Hebrew", arial
+      }
+  .reader
+    h1#book= words[0].book + ' '
+      form#chapter(method='GET' action='')
+        input(type="number" placeholder=words[0].c value=words[0].c size="1" min="1" name="c")
+        button(type="submit" value="enter" size=1) enter
+    .container
+      ul.nav
+        if (words[0].book === "genesis" && words[0].c === 50)
+          li
+            a(href='../exodus/1') Exodus 1
+        else if (words[0].book === "exodus" && words[0].c === 40)
+          li
+            a(href='../leviticus/1') Leviticus 1
+        else if (words[0].book === "leviticus" && words[0].c === 27)
+          li
+            a(href='../numbers/1') Numbers 1
+        else if (words[0].book === "numbers" && words[0].c === 36)
+          li
+            a(href='../deuteronomy/1') Deuteronomy 1
+        else if (words[0].book === "deuteronomy" && words[0].c === 34)
+          li
+            a(href='../genesis/1') Genesis 1
+        else
+          li
+            a(href='../'+words[0].book+'/'+(words[0].c + 1))= words[0].book + ' ' + (words[0].c + 1)
+        li
+          a.currentChapter(href='../'+words[0].book+'/'+words[0].c)= words[0].book + ' ' + words[0].c
+
+        if words[0].c === 1
+          if words[0].book === "genesis"
+            li
+              a(href='../deuteronomy/34') Deuteronomy 34
+          if words[0].book === "exodus"
+            li
+              a(href='../genesis/50') Genesis 50
+          if words[0].book === "leviticus"
+            li
+              a(href='../exodus/40') Exodus 40
+          if words[0].book === "numbers"
+            li
+              a(href='../leviticus/27') Leviticus 27
+          if words[0].book === "deuteronomy"
+            li
+              a(href='../numbers/36') Numbers 36
+        else
+          li
+            a(href='../'+words[0].book+'/'+(words[0].c - 1))= words[0].book + ' ' + (words[0].c - 1)
+
+
+
+    .container
+
+      .scroll
+        each word in words
+          if word.w === 1
+            div(id=word._id).word
+              .vnum(id="v" + word.c + "," + word.v)
+                span 
+                  a(href="../"+word.book+"/"+word.c+"?v="+word.v)= word.v
+              .heb
+                span
+                  a(href="../ancConcord/"+word.anc)=  word[hebtype] + " "
+
+              .trans
+                span
+                  a(href='../EngConcord/' + word.eng target="_blank")= word.eng + " "
+          else
+            div(id=word._id).word
+              .heb
+                span
+                  a(href="../ancConcord/"+word.anc)=  word[hebtype] + " "
+              .trans
+                span
+                  a(href='../EngConcord/' + word.eng target="_blank")= word.eng + " "
+  script(src="/removeSwigles.js" type="text/javascript")
+
+  //
+    script(src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript")
+
+    script. 
+      jQuery.fn.visible = function() {
+          return this.css('visibility', 'visible');
+      };
+
+      jQuery.fn.invisible = function() {
+          return this.css('visibility', 'hidden');
+      };
+
+      jQuery.fn.visibilityToggle = function() {
+          return this.css('visibility', function(i, visibility) {
+              return (visibility == 'visible') ? 'hidden' : 'visible';
+          });
+      };
+
+      //$('.word').on('click', '.heb', function(){
+      //  $(this).closest('.word').find('.trans').visibilityToggle();
+      //});
+      var heb = $('.heb')
+      heb.closest('.word').find('.trans').slideToggle();
+      $('.word').on('click', '.heb', function(){
+        var clicked = $(this);
+        heb.each(function() {
+          if ( clicked.text() === $(this).text() ) {
+            $(this).closest('.word').find('.trans').slideToggle();
+          }
+        });
+        
+      });
+
+
+
+
+
+
+
+
+
+
+

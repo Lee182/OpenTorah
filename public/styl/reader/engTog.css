@@ -1,0 +1,9 @@
+.trans {
+  opacity: 0;
+  height: 0;
+  visibility: hidden;
+  padding: 0;
+  position: absolute;
+  animation-duration: 3s;
+  animation-name: slidein;
+}
