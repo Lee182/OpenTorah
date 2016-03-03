@@ -1,100 +1,55 @@
-// Imports
-@import 'nib'
-global-reset()
+// reset
+@require './lib/jonoreset.styl'
 
-*
-  box-sizing border-box
-body
-  font-size 1em
-a
-  color inherit
-  text-decoration none
-.flexwrap
-  display flex
-  flex-flow row wrap
+// colors
+c_reader_bg = rgb(255, 249, 215)
+c_gray = #e0e0e0
+c_dark_blue = #2d6798
+c_graphite = #4B4B4B
 
-#scroll, #scrollmenu
-  flex 1 0 100%
-  margin-right 1em
 // Layout //
 #reader
-  margin 0 0 0 auto;
-  padding 1em .5em 1em 1em
+  margin 0 0 0 auto
   width 61.8%
   @media screen and (max-width: 600px)
     width 100%
-  background-color #FCF8DD
-
-.nav
-  display flex
-.nav > li
-  display flex
-  flex-direction row
-  width 33.333%
-  padding 1em 0.5em
-
-// Text is right to left at gloden ratio
-#scroll.flexwrap
+  background-color c_reader_bg
+#readermenu
+  padding 1em
+  justify-content space-around
+  background-color hue(darken(c_reader_bg, 10), 10deg)
+#readerContent
+  padding 1em
+  @media screen and (max-width: 600px)
+    padding .5em
+    padding-right 1em
   flex-direction row-reverse
   align-content flex-start
-.para
-  flex: 1 0 100%
-  opacity .3
-.title {
-  flex: 1 0 100%;
-  text-align: center;
-  padding: 2em;
-  font-family: Verdana;
-  font-size: 1.5em;
-}
-.space .heb
-  color red !important
-  opacity .3
-  padding 0 2em
-.left
-  width 38.2%
-  padding 1%
 
-
-
-// Modules //
-// Chapter title drop
-#chapter
-  display inline
-  input
-    width 2.5em
-    text-align center
-    font-size 1em
-// Words in scroll section
-.word, .verse
+.word
   direction rtl
   padding .9em 0.5em
-
-// Title
-h1
-  margin 20px 5px 20px 5px
-  text-align center
-  text-transform uppercase
-  font-size 2em // 26px
-  font-family Open Sans
-
-.footer
-  position bottom
-  background-color lighten(blue, 80%)
-  padding 20px
-  margin-top 5%
-  text-align right
-  strong
-    color black
-  p
-    margin 10px
-    color lighten(black, 50%)
+.marker
+  &-para
+    flex: 1 0 100%
+    opacity .3
+  &-space
+    .heb
+      color red !important
+    opacity .3
+    padding .9em 2em
+  &-title
+    flex 1 0 100%
+    color #a9a9a9
+    padding 1em 0 .5em 0
+    border-bottom 1px solid
+    margin-bottom 1em
+    font-family Open Sans
+    font-size 1.1em
+    text-align center
+    text-transform capitalize
 
 @require 'heb'
-@require 'scrollbars'
 @require 'eng'
-// reader ultimate expert mode
-// .vnum
-// .para
-// .space
-//   visibility hidden
+
+@require 'scrollbars'

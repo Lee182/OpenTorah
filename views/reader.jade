@@ -6,97 +6,64 @@ block title
     #psScroll { position:relative; margin:0px auto; padding:0px; height: 400px; overflow: hidden; }
     .content {width: calc(100% - 1em);}
 block content 
-  h1#book= words[0].book + ' '
-    form#chapter(method='GET' action='')
-      input(type="number" placeholder=words[0].c value=words[0].c size="1" min="1" name="c")
-      button(type="submit" value="enter" size=1) enter
   #reader.flexwrap
-    #scrollmenu
-      //vnumTog.js
+    nav#readermenu.flexItem.flexwrap
+      //- vnumTog.js
       #novnum.btn no verses
-      br
-      //vnumTog.js
       #byline.btn verses by line
-      br
-      //engTog.js
+      //- engTog.js
       #engtog.btn toggle english
-      #scroll.flexwrap()
-        mixin word(word,type)
-          if word.heb === 'פ'
-            div(id=word._id).word.para
-              .heb(
-                data-b=word.book
-                data-c=word.c
-                data-v=word.v 
-                data-w=word.w
-              )
-                span=word.heb
-          if word.heb === 'ס'
-            div(id=word._id).word.space
-              .heb(
-                data-b=word.book
-                data-c=word.c
-                data-v=word.v 
-                data-w=word.w
-              )
-                span=word.heb
-          if word.w === 1
-            .vnum(id= word.book + '.' + 'c' + word.c + '.' + word.v )
-              a(href= word.book + '.' + 'c' + word.c + '.' + word.v )= word.c + ':' + word.v
-          if word.heb !== 'פ' && word.heb !== 'ס'
-            div(id=word._id).word
-              .heb(
-                data-heb=word.heb 
-                data-constant=word.constant 
-                data-vowel=word.vowel
-                data-cantnovowel=word.cantnovowel
-                data-anc=word.anc
-                 
-                data-b=word.book
-                data-c=word.c
-                data-v=word.v 
-                data-w=word.w
-              )
-                span
-                  a(href="/concord/anc/"+word.anc)=  word[type] + " "
-              .trans
-                if word.eng === undefined
-                  div.eng
-                if word.eng 
-                  div
-                    a(href='/concord/eng/' + word.eng target="_blank")= word.eng + " "
-        each word in words
-          +word(word, 'constant')
-        #loadNext scroll +
-  include _footer.jade
+    article#readerContent.flexItem.flexwrap
+      mixin word(word,type)
+        if word.heb === 'פ'
+          div(id=word._id).word.marker-para
+            .heb(
+              data-b=word.book
+              data-c=word.c
+              data-v=word.v 
+              data-w=word.w
+            )
+              span=word.heb
+        if word.heb === 'ס'
+          div(id=word._id).word.marker-space
+            .heb(
+              data-b=word.book
+              data-c=word.c
+              data-v=word.v 
+              data-w=word.w
+            )
+              span=word.heb
+        if word.c === 1 && word.v === 1 && word.w === 1
+          - var ref = word.book + '.' + 'c' + word.c + '.' + word.v
+          h1.marker-title.flexItem= word.book
+        if word.w === 1
+          - var ref = word.book + '.' + 'c' + word.c + '.' + word.v
+          .vnumInvisible
+        if word.heb !== 'פ' && word.heb !== 'ס'
+          div(id=word._id).word
+            if word.w === 1
+              - var ref = word.book + '.' + 'c' + word.c + '.' + word.v
+              a.vnum(href=ref id=ref)= word.c + ':' + word.v
+            .heb(
+              data-heb=word.heb 
+              data-constant=word.constant 
+              data-vowel=word.vowel
+              data-cantnovowel=word.cantnovowel
+              data-anc=word.anc
+               
+              data-b=word.book
+              data-c=word.c
+              data-v=word.v 
+              data-w=word.w
+            )
+              a(href="/concord/anc/"+word.anc)=  word[type] + " "
+            .trans
+              if word.eng === undefined
+                div.eng
+              if word.eng 
+                div
+                  a(href='/concord/eng/' + word.eng target="_blank")= word.eng + " "
+      each word in words
+        +word(word, 'constant')
+      #loadNext scroll +
   script(src="/js/bundle.js")
-  script.
-    // words = document.querySelectorAll('.word')
-    // vowels = Array.prototype.reduce.apply(words, [function(all, word, i) {
-    //   var vowel = word.children[0].dataset.vowel
-    //   if (vowel) {
-    //     if (all.indexOf(vowel) === -1) {
-    //       all.push(vowel)
-    //     }
-    //   }
-    //   return all
-    // }, [] ])
-    // 
-    // // var counter =0
-    // // vowels.forEach(function(heb){
-    // //   get('http://localhost:5775/trans/'+ heb + '?json=true').then(function(res){
-    // //     res = JSON.parse(res)
-    // //     if (res[0] && res[0]._id) { 
-    // //       console.log(res[0]._id)
-    // //       counter++
-    // //     }
-    // //   })
-    // // })
-    // 
-    // var connection = new WebSocket('ws://localhost:8001')
-    // connection.onmessage = function (e) {
-    //   console.log(e)
-    //   // do some dom
-    //   // document.getElementById('result0').value=event.data;
-    // }
-    // connection.send(vowels[0])

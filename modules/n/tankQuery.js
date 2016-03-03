@@ -56,7 +56,6 @@ var tankQuery = function(str) {
     obj.c = bookInfo.cRange(range[0]) ? range[0] : 1;
   }
   var tail;
-  console.log(obj[char])
   if (typeof obj[char] === 'number') {
     tail = obj[char]
   }

@@ -1,6 +1,7 @@
 var ReaderDao = require('../dao/reader')
 var tankQuery = require('../modules/n/tankQuery.js')
 var useApi = require('../modules/n/useApi.js')
+
 function ReaderHandle(db) {
 var reader = new ReaderDao(db)
 
@@ -64,5 +65,4 @@ this.chapter = function(req,res,next) {
 
 
 }
-
 module.exports = ReaderHandle
