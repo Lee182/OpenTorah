@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="512"
+   height="512"
+   viewBox="0 0 511.99999 511.99999"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r"
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="/home/lee/Desktop/OpenTorah/OpenTorah/public/images/logo.png"
+   inkscape:export-xdpi="90.887489"
+   inkscape:export-ydpi="90.887489">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient6537"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#9993b4;stop-opacity:1;"
+         offset="0"
+         id="stop6539" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient6428"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#b7b2d4;stop-opacity:1;"
+         offset="0"
+         id="stop6430" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5761"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#fcf8dd;stop-opacity:1;"
+         offset="0"
+         id="stop5763" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#dbdbdb"
+     bordercolor="#666666"
+     borderopacity="0.44705882"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="-228.29305"
+     inkscape:cy="337.47366"
+     inkscape:document-units="px"
+     inkscape:current-layer="bg"
+     showgrid="false"
+     showguides="true"
+     borderlayer="false"
+     inkscape:showpageshadow="true"
+     units="px"
+     showborder="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-others="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="712"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="bg"
+     transform="translate(0,-540.36219)"
+     style="display:inline">
+    <rect
+       style="opacity:1;fill:#fff9d7;fill-opacity:1;stroke:#9993b4;stroke-width:4.80615711;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect6456"
+       width="502.19434"
+       height="502.19434"
+       x="5.6099324"
+       y="545.97211"
+       ry="125.54858" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="p"
+     inkscape:label="Layer 2"
+     style="display:inline">
+    <g
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:125px;line-height:125%;font-family:'David CLM';-inkscape-font-specification:'David CLM, Medium';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;opacity:1;fill:#625b83;fill-opacity:1;stroke:#9993b4;stroke-width:4.9000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="text3344"
+       transform="matrix(0.98084834,0,0,0.98084834,5.6099326,5.6099325)">
+      <path
+         d="m 230.071,39.723743 c 1.275,0.425 5.7375,2.125 13.3875,5.1 8.075,2.55 12.9625,4.25 14.6625,5.1 2.125,0.425 6.8,1.9125 14.025,4.4625 7.225,2.55 12.1125,4.4625 14.6625,5.7375 2.975,0.85 7.65,2.55 14.025,5.1 6.8,2.55 12.1125,4.675 15.9375,6.375 3.825,1.7 8.7125,4.0375 14.6625,7.0125 5.95,2.55 11.2625,5.1 15.9375,7.65 4.675,2.55 9.775,5.3125 15.3,8.2875 5.525,2.975 10.8375,6.162497 15.9375,9.562497 16.15,10.2 28.05,21.8875 35.7,35.0625 8.075,12.75 12.5375,30.3875 13.3875,52.9125 2.55,47.6 1.0625,106.4625 -4.4625,176.5875 -11.9,36.125 -28.05,62.2625 -48.45,78.4125 l -272.85,0 c 12.75,-22.1 28.9,-45.2625 48.45,-69.4875 l 201.45,0 c 6.8,0 12.325,-2.3375 16.575,-7.0125 4.25,-5.1 6.375,-11.05 6.375,-17.85 0.85,-58.65 -0.2125,-102 -3.1875,-130.05 -1.7,-15.3 -5.525,-27.4125 -11.475,-36.3375 -5.525,-9.35 -15.0875,-18.0625 -28.6875,-26.1375 -29.75,-17.85 -59.58433,-32.5125 -105.05933,-43.9875 -10.2,10.625 -24.99067,23.5875 -28.81567,38.8875 -3.825,15.3 -3.4,28.2625 1.275,38.8875 4.675,11.05 20.4,24.0125 47.175,38.8875 -11.9,24.65 -24.4375,45.2625 -37.6125,61.8375 -42.075,-16.575 -65.875,-38.25 -71.4,-65.025 -7.225,-32.725 4.0375,-70.975 33.7875,-114.75 21.675,-30.599998 41.4375,-55.674997 59.2875,-75.224997 z"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:765px;line-height:125%;font-family:'David CLM';-inkscape-font-specification:'David CLM, Medium';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#625b83;fill-opacity:1;stroke:#9993b4;stroke-width:4.9000001;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path6508"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccsccscsscccccccsccccccscccccc" />
+    </g>
+  </g>
+</svg>

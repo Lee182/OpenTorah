@@ -1,0 +1,51 @@
+Todo
+  Refactor CSS code into clear stylus structure
+    css reset
+    base, colors
+    layout disitions
+
+  fixed header with logo and animations
+
+  carefully designed layout taking into account
+    1 reader
+    2 parrelel english
+    3 concordance
+    4 dictionary
+    4 advanced search
+  and how these different components will behave at different screen widths and heights
+
+  incorparate new research with opentorah brick sort 1 word at the time
+  look at some statistic librarys
+
+Thoughts on how to do
+  maybe having a top toolbar with cursor functions would be beneficial
+  on the right
+    engBelow
+      onclick
+        if mobile -> dictionary in newtab
+          var w2 = window.open()
+          w2.location.href = 'youtube.com'
+        if desktop
+          open link in a sidepane
+    hebSearch
+      tap regex search of heb
+      advanced options also there
+    engSearch
+      like heb but with eng
+      maybe dont have engsearch
+    hebWordTap
+      if mobile newtab
+      if desktop take it on the side
+      gives word definition
+      first usage
+      graph of where located
+
+    Settings
+      always open ... in a newtab
+    Themes
+      dark, computer ...
+
+
+   I've just relised the concordance or person could have a user history. This would be done using the local storage api, displaying the last 20 things that person clicked on.
+
+   Potentially webstorage could be used for a person to use the app offline
